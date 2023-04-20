@@ -10,7 +10,7 @@ class NewsletterController extends Controller
 {
     
     public function __invoke(Newsletter $newsletter){
-        ddd($newsletter);
+        // ddd($newsletter);
         request()-> validate(['email' => 'required|email']);
 
         try{
@@ -21,7 +21,6 @@ class NewsletterController extends Controller
             ]);
         }
         
-    
         return redirect('/') ->with('success', 'You are now signed up for our newsletter!');
     }
 }

@@ -19,11 +19,7 @@ class RegisterController extends Controller
             'password' => 'required|min:7|max:255'
         ]);
 
-        $attributes['password'] = bcrypt($attributes['password']);
-
-        $user = User::create($attributes);
-
-        auth()->login($user);
+        auth()->login(User::create($attributes));
 
         return redirect('/')->with('success', 'Your account has been created.');
     }
